@@ -1,10 +1,10 @@
 <template>
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+  <DomusPagina />
 </template>
 
 <script setup lang="ts">
+import DomusPagina from './modulorum/landing/pagimae/DomusPagina.vue';
+
 
 </script>
 
