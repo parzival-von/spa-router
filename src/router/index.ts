@@ -2,16 +2,16 @@ import DomusPagina from '@/modulorum/landing/paginae/DomusPagina.vue';
 import { createRouter, createWebHashHistory } from 'vue-router';
 
 export const router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(),
   routes: [
     {
       path: '/',
-      name: 'Home',
+      name: 'home',
       component: DomusPagina,
     },
     {
       path: '/features',
-      name: 'Features',
+      name: 'features',
       component: () => import('@/modulorum/landing/paginae/PeculiaritatesPagina.vue'),
     },
     {
@@ -19,6 +19,7 @@ export const router = createRouter({
       name: 'pricing',
       component: () => import('@/modulorum/landing/paginae/PretiumPagina.vue'),
     },
+
     {
       path: '/contact',
       name: 'contact',
