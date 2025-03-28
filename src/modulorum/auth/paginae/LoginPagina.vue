@@ -34,6 +34,7 @@
     </div>
 
     <button
+      @click="cumLogin"
       type="button"
       class="bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md py-2 px-4 w-full"
     >
@@ -45,3 +46,16 @@
     <RouterLink :to="{ name: 'register' }" class="hover:underline">Login</RouterLink>
   </div>
 </template>
+<script lang="ts" setup>
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const cumLogin = () => {
+  router.replace({
+    name: 'home',
+  });
+
+  // console.log('login');
+};
+</script>
