@@ -1,5 +1,5 @@
 <template>
-    <div class="h-screen flex flex-col">
+  <div class="h-screen flex flex-col">
     <header class="flex items-center h-14 sm:h-16 px-4 md:px-6 lg:px-8 border-b border-gray-300">
       <div>
         <a href="#">
@@ -7,11 +7,17 @@
         </a>
       </div>
 
-      <nav class="flex-1 flex justify-end sm:justify-center space-x-4">
-        <RouterLink :to="{ name: 'home' }">Home</RouterLink>
-        <RouterLink to="/features">Features</RouterLink>
-        <RouterLink to="/pricing">Pricing</RouterLink>
-        <RouterLink to="/contact">Contact</RouterLink>
+      <nav class="ml-auto flex flex-col items-end">
+        <div class="space-x-4">
+          <RouterLink :to="{ name: 'home' }">Home</RouterLink>
+          <RouterLink to="/features">Features</RouterLink>
+          <RouterLink to="/pricing">Pricing</RouterLink>
+          <RouterLink to="/contact">Contact</RouterLink>
+        </div>
+        <div class="space-x-4">
+          <RouterLink to="/pokemon/1">Pokemons</RouterLink>
+          <RouterLink to="/auth">Login</RouterLink>
+        </div>
       </nav>
     </header>
 
