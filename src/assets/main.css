@@ -1,5 +1,10 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-html,body {
-    background-color: #f1f1f1;
+html,
+body {
+  background-color: #f1f1f1;
+}
+
+.router-link-exact-active {
+  @apply underline font-semibold text-green-800 transition-all;
 }
