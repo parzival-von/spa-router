@@ -1,7 +1,7 @@
 <template>
   <h1 class="text-2xl font-semibold mb-4">Login</h1>
 
-  <form action="#" method="POST">
+  <form @submit.prevent="cumLogin">
     <div class="mb-4">
       <label for="username" class="block text-gray-600">Username</label>
       <input
@@ -16,6 +16,7 @@
     <div class="mb-4">
       <label for="password" class="block text-gray-600">Password</label>
       <input
+        v-model="clavem"
         type="password"
         id="password"
         name="password"
@@ -34,8 +35,7 @@
     </div>
 
     <button
-      @click="cumLogin"
-      type="button"
+      type="submit"
       class="bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-md py-2 px-4 w-full"
     >
       Login
@@ -43,19 +43,27 @@
   </form>
 
   <div class="mt-6 text-blue-500 text-center">
-    <RouterLink :to="{ name: 'register' }" class="hover:underline">Login</RouterLink>
+    <RouterLink :to="{ name: 'register' }" class="hover:underline">Register</RouterLink>
   </div>
 </template>
+
 <script lang="ts" setup>
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
+const clavem = ref<string>(''); // Estado reactivo para la contraseña
 
 const cumLogin = () => {
-  router.replace({
-    name: 'home',
-  });
+  if (clavem.value === 'ABC-123') {
+    localStorage.setItem('userId', 'ABC-123'); // Guarda el usuario en localStorage
+    
+  } else {
+    alert('Contraseña incorrecta'); // Muestra un mensaje si la contraseña no coincide
+  }
 
-  // console.log('login');
+  const utlimoSitu = localStorage.getItem('lastPath') ?? '/';
+
+  router.replace(utlimoSitu); // Redirige a la última página visitada
 };
 </script>

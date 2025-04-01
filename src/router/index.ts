@@ -1,3 +1,4 @@
+import estPermititurGuard from '@/modulorum/auth/guards/est-permititur.guard';
 import DomusPagina from '@/modulorum/landing/paginae/DomusPagina.vue';
 import NotFound404 from '@/modulorum/ordinarius/paginae/NotFound404.vue';
 import { createRouter, createWebHashHistory } from 'vue-router';
@@ -15,19 +16,16 @@ export const router = createRouter({
           name: 'home',
           component: DomusPagina,
         },
-
         {
           path: '/features',
           name: 'features',
           component: () => import('@/modulorum/landing/paginae/PeculiaritatesPagina.vue'),
         },
-
         {
           path: '/pricing',
           name: 'pricing',
           component: () => import('@/modulorum/landing/paginae/PretiumPagina.vue'),
         },
-
         {
           path: '/contact',
           name: 'contact',
@@ -36,17 +34,15 @@ export const router = createRouter({
         {
           path: '/pokemon/:id',
           name: 'pokemon',
-          // props: true,
-          props: (route)=>{
+          beforeEnter: [estPermititurGuard],
+          props: (route) => {
             const id = Number(route.params.id);
-
             return isNaN(id) ? { id: 1 } : { id };
           },
           component: () => import('@/modulorum/pokemons/paginae/PokemonPagina.vue'),
         },
       ],
     },
-
     {
       path: '/auth',
       component: () => import('@/modulorum/auth/layouts/AuthLayout.vue'),
@@ -64,10 +60,8 @@ export const router = createRouter({
         },
       ],
     },
-
     {
       path: '/:pathMatch(.*)*',
-      //redirect: '/',
       component: NotFound404,
     },
   ],
