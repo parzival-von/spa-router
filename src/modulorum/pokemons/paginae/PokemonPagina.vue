@@ -12,13 +12,13 @@
     />
 
     <RouterLink
-      :to="{ name: 'pokemon', params: { id: id + 1 } }"
+      :to="{ name: 'pokemon', params: { id: Number(id) + 1 } }"
       class="bg-blue-500 text-white p-2 mt-5 rounded-md text-center hover:bg-blue-700"
     >
       Siguiente
     </RouterLink>
     <RouterLink
-      :to="{ name: 'pokemon', params: { id: id - 1 } }"
+      :to="{ name: 'pokemon', params: { id: Math.max(1, Number(id) - 1) } }"
       class="bg-blue-500 text-white p-2 mt-5 rounded-md text-center hover:bg-blue-700"
     >
       Anterior
@@ -32,4 +32,5 @@ interface Props {
 }
 
 const props = defineProps<Props>();
+
 </script>
